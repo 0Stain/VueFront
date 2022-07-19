@@ -1,5 +1,7 @@
 <template>
-<Header></Header>
+<Header title="Test">
+  <router-view></router-view>
+</Header>
 </template>
 
 <script>
