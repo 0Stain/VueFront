@@ -4,19 +4,20 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">fsdfs</th>
-                <th scope="col">dfsfs</th>
+                <th scope="col">Start Time</th>
+                <th scope="col">End Time</th>
+                <th scope="col">User Id</th>
+                <th scope="col">Box Id</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody v-for="booking in bookings" :key="booking.booking_id">
             <tr class="table-secondary">
-                <th scope="row">1</th>
-                <th scope="row">1</th>
-                <th scope="row">1</th>
-                <th scope="row">1</th>
-                <th scope="row">1</th>
+                <th scope="row">{{ booking.booking_id }}</th>
+                <th scope="row">{{ booking.t_start }}</th>
+                <th scope="row">{{ booking.t_end }}</th>
+                <th scope="row">{{ booking.user_id }}</th>
+                <th scope="row">{{ booking.box_id }}</th>
+                
             </tr>
         </tbody>
     </table>
@@ -26,8 +27,29 @@
 
 
 <script>
+import axios from 'axios';
 export default {
-    name: 'BookingsList'
+    name: 'BookingsList',
+    data() {
+        return {
+            bookings:Array,
+        }
+    },
+    created() {
+        this.getBookings();
+    },
+    methods: {
+        async getBookings()  {
+            let url = 'http://127.0.0.1:8000/api/getBookings';
+            await axios.get(url).then(response => {
+                this.bookings = response.data;
+                console.log(this.bookings);
+            }).catch(console.error());
+        }
+    },
+    mounted() {
+        console.log('Bookings list Component mounted');
+    }
 } 
 </script>
 
