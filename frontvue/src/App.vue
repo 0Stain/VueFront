@@ -1,8 +1,8 @@
 <template>
 <Header title="Test">
-  
+ 
 </Header>
-<router-view></router-view>
+ <router-view></router-view>
 </template>
 
 <script>
