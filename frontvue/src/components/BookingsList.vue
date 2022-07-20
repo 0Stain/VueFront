@@ -7,7 +7,7 @@
 
 <script>
 export default {
-    name: 'BookingList'
+    name: 'BookingsList'
 } 
 </script>
 
