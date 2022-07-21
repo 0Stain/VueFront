@@ -9,12 +9,15 @@
                   <div class="collapse navbar-collapse" id="navbarColor01">
                     <ul class="navbar-nav me-auto">
                       <li class="nav-item">
-                        <router-link class="nav-link active" to="/">Home
+                        <router-link class="nav-link active" to="/">Bookings List
                           <span class="visually-hidden">(current)</span>
                         </router-link>
                       </li>
                       <li class="nav-item">
                         <router-link class="nav-link" to="add_booking">Add Booking</router-link>
+                      </li>
+                      <li class="nav-item">
+                        <router-link class="nav-link" to="users_list">Users List</router-link>
                       </li>
                      </ul>
                   </div>
