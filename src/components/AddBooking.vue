@@ -66,7 +66,7 @@ export default {
         async saveBooking() { 
             this.errors = [];
             if(!this.booking_id) {
-                this.errors.push("Id required")
+                this.errors.push("Id ")
             }
 
             if(!this.t_start) {
