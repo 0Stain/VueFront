@@ -1,5 +1,5 @@
 <template>
-<Header title="Test">
+<Header title="BookMyBox">
  
 </Header>
  <router-view></router-view>
