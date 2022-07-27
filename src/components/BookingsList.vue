@@ -10,9 +10,9 @@
                 <th scope="col">Box Id</th>
             </tr>
         </thead>
-        <tbody v-for="booking in bookings" :key="booking.booking_id">
+        <tbody v-for="booking in bookings" :key="booking.id">
             <tr class="table-secondary">
-                <th scope="row">{{ booking.booking_id }}</th>
+                <th scope="row">{{ booking.id }}</th>
                 <th scope="row">{{ booking.t_start }}</th>
                 <th scope="row">{{ booking.t_end }}</th>
                 <th scope="row">{{ booking.user_id }}</th>

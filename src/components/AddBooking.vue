@@ -17,7 +17,7 @@
                 
                 <div class="form-group">
                     <label class="form-label mt-4">Booking Id</label>
-                    <input type="text" class="form-control" v-model="booking_id" placeholder="Enter  Id">
+                    <input type="text" class="form-control" v-model="id" placeholder="Enter  Id">
                 </div>
                 <div class="form-group">
                     <label class="form-label mt-4">Start Date</label>
@@ -53,7 +53,7 @@ export default {
     name: 'AddBooking',
     data() {
         return {
-            booking_id: '',
+            id: '',
             t_start: '',
             t_end: '',
             user_id: '',
@@ -65,7 +65,7 @@ export default {
     methods: {
         async saveBooking() { 
             this.errors = [];
-            if(!this.booking_id) {
+            if(!this.id) {
                 this.errors.push("Id ")
             }
 
@@ -87,7 +87,7 @@ export default {
             
              if(!this.error) {
                 let formData = new FormData();
-                formData.append('booking_id', this.booking_id);
+                formData.append('id', this.id);
                 formData.append('t_start', this.t_start);
                 formData.append('t_end', this.t_end);
                 formData.append('user_id', this.user_id);
