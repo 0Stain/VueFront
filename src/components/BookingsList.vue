@@ -8,6 +8,7 @@
                 <th scope="col">End Time</th>
                 <th scope="col">User Id</th>
                 <th scope="col">Box Id</th>
+                <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody v-for="booking in bookings" :key="booking.id">
@@ -17,7 +18,8 @@
                 <th scope="row">{{ booking.t_end }}</th>
                 <th scope="row">{{ booking.user_id }}</th>
                 <th scope="row">{{ booking.box_id }}</th>
-                
+                <th scope="row"><button class="alert alert-danger btn-sm" @click.
+                prevent="deleteBooking(booking.id)">Delete Booking</button></th>
             </tr>
         </tbody>
     </table>
@@ -46,6 +48,9 @@ export default {
                 console.log(this.bookings);
             }).catch(console.error());
         }
+    },
+    async deleteBooking(id) {
+        alert(id);
     },
     mounted() {
         console.log('Bookings list Component mounted');
