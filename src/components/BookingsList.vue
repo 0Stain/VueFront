@@ -18,11 +18,11 @@
                 <th scope="row">{{ booking.t_end }}</th>
                 <th scope="row">{{ booking.user_id }}</th>
                 <th scope="row">{{ booking.box_id }}</th>
-                <th scope="row"><button class="alert alert-danger btn-sm" @click.
+                <th scope="row"><button class="btn btn-danger btn-sm" @click.
                 prevent="deleteBooking(booking.id)">Delete Booking</button></th>
             </tr>
         </tbody>
-    </table>
+    </table>    
     
 </div>
 </template>
@@ -46,11 +46,16 @@ export default {
             await axios.get(url).then(response => {
                 this.bookings = response.data;
                 console.log(this.bookings);
-            }).catch(console.error());
-        }
-    },
+            }).catch(error => {
+                console.log(error);
+            });
+        },
+        
     async deleteBooking(id) {
-        alert(id);
+        
+        console.log("id");
+    }
+    
     },
     mounted() {
         console.log('Bookings list Component mounted');
