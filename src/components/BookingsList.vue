@@ -11,15 +11,14 @@
                 <th scope="col">Action</th>
             </tr>
         </thead>
-        <tbody v-for="booking in bookings" :key="booking.id">
+        <tbody v-for="booking in bookings" v-bind:key="booking.id">
             <tr class="table-secondary">
                 <th scope="row">{{ booking.id }}</th>
                 <th scope="row">{{ booking.t_start }}</th>
                 <th scope="row">{{ booking.t_end }}</th>
                 <th scope="row">{{ booking.user_id }}</th>
                 <th scope="row">{{ booking.box_id }}</th>
-                <th scope="row"><button class="btn btn-danger btn-sm" @click.
-                prevent="deleteBooking(booking.id)">Delete Booking</button></th>
+                <th scope="row"><button class="btn btn-danger btn-sm" v-on:click="deleteBooking(booking.id)">Delete Booking</button></th>
             </tr>
         </tbody>
     </table>    
@@ -52,8 +51,15 @@ export default {
         },
         
     async deleteBooking(id) {
-        
-        console.log("id");
+        let url = `http://127.0.0.1:8000/api/deleteBooking/${id}`;
+        await axios.delete(url).then(response => {
+            if(response.data.code == 200) {
+                alert('Booking deleted successfully');
+                this.getBookings();
+            }
+        }).catch(error => {
+            console.log(error);
+        });
     }
     
     },
