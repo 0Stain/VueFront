@@ -18,6 +18,7 @@
                 <th scope="row">{{ booking.t_end }}</th>
                 <th scope="row">{{ booking.user_id }}</th>
                 <th scope="row">{{ booking.box_id }}</th>
+                <th scope="row"><router-link :to="{ name:'EditBooking', params:{id: booking.id} }" class="btn btn-primary btn-sm" v-on:click="geditBooking(booking.id)">Edit Booking</router-link></th>
                 <th scope="row"><button class="btn btn-danger btn-sm" v-on:click="deleteBooking(booking.id)">Delete Booking</button></th>
             </tr>
         </tbody>
