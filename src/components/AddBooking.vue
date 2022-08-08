@@ -22,11 +22,11 @@
                 </div>
                 <div class="form-group">
                     <label class="form-label mt-4">Start Date</label>
-                    <input type="date" class="form-control" v-model="booking.t_start" placeholder="Enter Start Date">
+                    <input type="datetime" class="form-control" v-model="booking.t_start" placeholder="Enter Start Date">
                 </div>
                 <div class="form-group">
                     <label class="form-label mt-4">End Date</label>
-                    <input type="date" class="form-control" v-model="booking.t_end" placeholder="Enter End Date">
+                    <input type="datetime" class="form-control" v-model="booking.t_end" placeholder="Enter End Date">
                 </div>
                 <div class="form-group">
                     <label class="form-label mt-4">User Id</label>
@@ -98,6 +98,13 @@ export default {
                 await axios.post(url, formData).then((response) => {
                     console.log(response);
                     if(response.status == 200) {
+
+                        this.booking.id = '';
+                        this.booking.t_start = '';
+                        this.booking.t_end = '';
+                        this.booking.user_id = '';
+                        this.booking.box_id = '';
+
                         alert(response.data.message);
                     }
                 });
