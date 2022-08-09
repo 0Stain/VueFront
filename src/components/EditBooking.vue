@@ -79,40 +79,40 @@ export default {
                 console.log(response);
                 this.booking = response.data;
             });
-        }
-    },
+        },
+    
     
 
     async updateBooking() {
         
             this.errors = [];
-            if(!this.id) {
+            if(!this.booking.id) {
                 this.errors.push("Id ")
             }
 
-            if(!this.t_start) {
+            if(!this.booking.t_start) {
                 this.errors.push("Date required")
             }
             
-            if(!this.t_end) {
+            if(!this.booking.t_end) {
                 this.errors.push("Date required")
             }
 
-            if(!this.user_id) {
+            if(!this.booking.user_id) {
                 this.errors.push("User Id required")
             }
 
-            if(!this.box_id) {
+            if(!this.booking.box_id) {
                 this.errors.push("Box Id required")
             }
             
              if(!this.error) {
                 let formData = new FormData();
-                formData.append('id', this.id);
-                formData.append('t_start', this.t_start);
-                formData.append('t_end', this.t_end);
-                formData.append('user_id', this.user_id);
-                formData.append('box_id', this.box_id);
+                formData.append('id', this.booking.id);
+                formData.append('t_start', this.booking.t_start);
+                formData.append('t_end', this.booking.t_end);
+                formData.append('user_id', this.booking.user_id);
+                formData.append('box_id', this.booking.box_id);
                 let url = `http://127.0.0.1:8000/api/updateBooking/${this.$route.params.id}`;
                 await axios.post(url, formData).then((response) => {
                     console.log(response);
@@ -128,6 +128,7 @@ export default {
              }
 
         
+    },
     },
 
     mounted: function() {

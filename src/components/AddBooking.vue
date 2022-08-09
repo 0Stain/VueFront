@@ -53,7 +53,7 @@ export default {
     name: 'AddBooking',
     data() {
         return {
-            booking: {},
+            bookings: {},
             id: '',
             t_start: '',
             t_end: '',
