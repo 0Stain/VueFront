@@ -18,7 +18,7 @@
                 <th scope="row">{{ booking.t_end }}</th>
                 <th scope="row">{{ booking.user_id }}</th>
                 <th scope="row">{{ booking.box_id }}</th>
-                <th scope="row"><router-link :to="{ name:'EditBooking', params:{id: booking.id} }" class="btn btn-primary btn-sm" v-on:click="geditBooking(booking.id)">Edit Booking</router-link></th>
+                <th scope="row"><router-link :to="{ name:'EditBooking', params:{id: booking.id} }" class="btn btn-primary btn-sm" v-on:click="getBookingById(booking.id)">Edit Booking</router-link></th>
                 <th scope="row"><button class="btn btn-danger btn-sm" v-on:click="deleteBooking(booking.id)">Delete Booking</button></th>
             </tr>
         </tbody>
@@ -35,12 +35,23 @@ export default {
     data() {
         return {
             bookings:Array,
+            
         }
     },
     created() {
         this.getBookings();
+        this.getBookingById();
     },
     methods: {
+         async getBookingById() {
+                
+            let url= `http://127.0.0.1:8000/api/geditBooking/${this.$route.params.id}`;
+            await axios.get(url).then(response => {
+                console.log(response);
+                this.booking = response.data;
+               
+            });
+        },
         async getBookings()  {
             let url = 'http://127.0.0.1:8000/api/getBookings';
             await axios.get(url).then(response => {

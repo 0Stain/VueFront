@@ -36,7 +36,7 @@
                     <label class="form-label mt-4">Box Id</label>
                     <input type="text" class="form-control" v-model="booking.box_id" placeholder="Enter Box Id">
                 </div>
-                <th scope="row"><button class="btn btn-primary mt-4" v-on:click="updateBooking(booking.id)">Update Booking</button></th>
+                <th scope="row"><button class="btn btn-primary mt-4" v-on:click="updateBooking()">Update Booking</button></th>
             </fieldset>
         </form>
     </div>
