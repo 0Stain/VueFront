@@ -9,6 +9,8 @@
                 <th scope="col">User Id</th>
                 <th scope="col">Box Id</th>
                 <th scope="col">Action</th>
+                
+                <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody v-for="booking in bookings" v-bind:key="booking.id">
